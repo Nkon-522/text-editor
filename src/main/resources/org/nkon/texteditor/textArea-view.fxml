@@ -3,4 +3,4 @@
 <?import javafx.scene.control.TextArea?>
 
 
-<TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nkon.texteditor.TextController" />
+<TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" stylesheets="@textArea-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nkon.texteditor.TextController" />
