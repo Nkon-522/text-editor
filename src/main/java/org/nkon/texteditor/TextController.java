@@ -16,4 +16,8 @@ public class TextController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         textArea.setStyle("-fx-focus-color: -fx-control-inner-background ; -fx-faint-focus-color: -fx-control-inner-background ;");
     }
+
+    public void clearTextArea() {
+        textArea.clear();
+    }
 }

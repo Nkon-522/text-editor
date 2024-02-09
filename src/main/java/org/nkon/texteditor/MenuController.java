@@ -28,9 +28,11 @@ public class MenuController {
 
     @FXML
     private void onNewMenuItemClick() {
-        ((Stage) newMenuItem.getParentPopup().getOwnerWindow()).setTitle("New");
-        this.stage.setTitle("New");
+        MenuTextControllerMediator.getInstance().onNewMenuItemClick();
     }
 
+    public void setTitle() {
+        this.stage.setTitle("New");
+    }
 
 }
