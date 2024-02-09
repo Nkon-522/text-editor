@@ -24,4 +24,8 @@ public class TextController implements Initializable {
             textArea.setText(s);
         }
     }
+
+    public String getText() {
+        return textArea.getText();
+    }
 }

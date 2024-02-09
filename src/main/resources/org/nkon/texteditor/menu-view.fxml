@@ -10,9 +10,9 @@
       <items>
         <MenuItem fx:id="newMenuItem" mnemonicParsing="false" onAction="#onNewMenuItemClick" text="New" />
         <MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#onOpenMenuItemClick" text="Open" />
-        <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" text="Save" />
-        <MenuItem fx:id="saveAsMenuItem" mnemonicParsing="false" text="Save as" />
-        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
+        <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#onSaveMenuItemClick" text="Save" />
+        <MenuItem fx:id="saveAsMenuItem" mnemonicParsing="false" onAction="#onSaveAsMenuItemClick" text="Save as" />
+        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#onExitMenuItemClick" text="Exit" />
       </items>
     </Menu>
     <Menu mnemonicParsing="false" text="Edit">

@@ -1,5 +1,6 @@
 package org.nkon.texteditor;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
@@ -8,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -15,6 +17,9 @@ public class MenuController {
     private Stage stage;
 
     private FileChooser fileChooser;
+
+    String fileName = null;
+    String filePath = null;
 
     @FXML
     private MenuItem newMenuItem;
@@ -34,6 +39,8 @@ public class MenuController {
     @FXML
     private void onNewMenuItemClick() {
         MenuTextControllerMediator.getInstance().setTitleAndText(null, null);
+        fileName = null;
+        filePath = null;
     }
 
     @FXML
@@ -41,10 +48,13 @@ public class MenuController {
         File file = fileChooser.showOpenDialog(null);
         if (file == null) { return; }
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()));
+        fileName = file.getName();
+        filePath = file.getAbsolutePath();
 
-            String title = file.getName();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+
+            String title = fileName;
             String text = br.lines().collect(Collectors.joining(System.lineSeparator()));
             MenuTextControllerMediator.getInstance().setTitleAndText(title, text);
 
@@ -53,6 +63,52 @@ public class MenuController {
             System.out.println("Could not open file!");
         }
 
+
+    }
+
+    @FXML
+    private void onSaveMenuItemClick() {
+        if (fileName == null) {
+            onSaveAsMenuItemClick();
+            return;
+        }
+
+        try {
+            FileWriter fw = new FileWriter(filePath);
+            fw.write(MenuTextControllerMediator.getInstance().getText());
+            setTitle(fileName);
+
+            fw.close();
+        } catch (Exception e) {
+            System.out.println("Could not save the file!");
+        }
+
+    }
+
+    @FXML
+    private void onSaveAsMenuItemClick() {
+        File file = fileChooser.showSaveDialog(null);
+        if (file == null) { return; }
+
+        fileName = file.getName();
+        filePath = file.getAbsolutePath();
+
+        try {
+            FileWriter fw = new FileWriter(filePath);
+
+            setTitle(fileName);
+            fw.write(MenuTextControllerMediator.getInstance().getText());
+
+            fw.close();
+
+        } catch (Exception e) {
+            System.out.println("Could not save file!");
+        }
+    }
+
+    @FXML
+    private void onExitMenuItemClick() {
+        Platform.exit();
     }
 
     public void setStage(Stage stage) {
@@ -68,5 +124,6 @@ public class MenuController {
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Select a file (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(filter);
     }
+
 
 }

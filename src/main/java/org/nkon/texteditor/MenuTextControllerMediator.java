@@ -17,6 +17,10 @@ public class MenuTextControllerMediator {
         textController.setTextArea(text);
     }
 
+    public String getText() {
+        return textController.getText();
+    }
+
     private MenuTextControllerMediator() {}
 
     public static MenuTextControllerMediator getInstance() {
