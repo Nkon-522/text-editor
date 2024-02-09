@@ -12,9 +12,9 @@ public class MenuTextControllerMediator {
         this.textController = textController;
     }
 
-    public void onNewMenuItemClick() {
-        menuController.setTitle();
-        textController.clearTextArea();
+    public void setTitleAndText(String title, String text) {
+        menuController.setTitle(title);
+        textController.setTextArea(text);
     }
 
     private MenuTextControllerMediator() {}

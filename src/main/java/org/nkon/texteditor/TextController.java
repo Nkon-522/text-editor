@@ -17,7 +17,11 @@ public class TextController implements Initializable {
         textArea.setStyle("-fx-focus-color: -fx-control-inner-background ; -fx-faint-focus-color: -fx-control-inner-background ;");
     }
 
-    public void clearTextArea() {
-        textArea.clear();
+    public void setTextArea(String s) {
+        if (s == null) {
+            textArea.clear();
+        } else {
+            textArea.setText(s);
+        }
     }
 }
