@@ -41,6 +41,14 @@ public class MenuTextControllerMediator {
         textController.setColor(color);
     }
 
+    public void handleUndo() {
+        textController.undo();
+    }
+
+    public void handleRedo() {
+        textController.redo();
+    }
+
     private MenuTextControllerMediator() {}
 
     public static MenuTextControllerMediator getInstance() {

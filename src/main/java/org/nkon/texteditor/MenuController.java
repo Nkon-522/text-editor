@@ -99,6 +99,16 @@ public class MenuController {
     }
 
     @FXML
+    private void onUndoItemClick() {
+        MenuTextControllerMediator.getInstance().handleUndo();
+    }
+
+    @FXML
+    private void onRedoItemClick() {
+        MenuTextControllerMediator.getInstance().handleRedo();
+    }
+
+    @FXML
     private void onWordWrapClick() {
         MenuTextControllerMediator.getInstance().handleWordWrap();
     }

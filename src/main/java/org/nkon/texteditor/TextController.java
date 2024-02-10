@@ -16,6 +16,8 @@ public class TextController implements Initializable {
     private String fontType = "Arial";
     private int fontSize = 12;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         textArea.setFont(Font.font(this.fontType, this.fontSize));
@@ -28,6 +30,14 @@ public class TextController implements Initializable {
         } else {
             textArea.setText(s);
         }
+    }
+
+    public void undo() {
+        textArea.undo();
+    }
+
+    public void redo() {
+        textArea.redo();
     }
 
     public void updateWordWrap(boolean isWordWrapped) {
