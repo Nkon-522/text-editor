@@ -44,7 +44,9 @@
     </Menu>
     <Menu mnemonicParsing="false" text="Color">
       <items>
-        <MenuItem mnemonicParsing="false" text="About" />
+        <MenuItem mnemonicParsing="false" onAction="#onColorClick" text="White" />
+            <MenuItem mnemonicParsing="false" onAction="#onColorClick" text="Black" />
+            <MenuItem mnemonicParsing="false" onAction="#onColorClick" text="Blue" />
       </items>
     </Menu>
   </menus>

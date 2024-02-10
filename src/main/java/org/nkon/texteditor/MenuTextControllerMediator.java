@@ -37,6 +37,10 @@ public class MenuTextControllerMediator {
         textController.setFontSize(fontSize);
     }
 
+    public void handleSetColor(String color) {
+        textController.setColor(color);
+    }
+
     private MenuTextControllerMediator() {}
 
     public static MenuTextControllerMediator getInstance() {

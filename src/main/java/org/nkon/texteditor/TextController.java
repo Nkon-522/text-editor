@@ -48,4 +48,33 @@ public class TextController implements Initializable {
         this.fontSize = fontSize;
         textArea.setFont(Font.font(this.fontType, this.fontSize));
     }
+
+    public void setColor(String color) {
+        switch (color) {
+            case "White" -> {
+                textArea.lookup(".content").setStyle("-fx-background-color: white;");
+                textArea.setStyle(
+                        "-fx-control-inner-background: white;"+
+                                "-fx-background-color: white;"+
+                                "-fx-text-fill: black"
+                );
+            }
+            case "Black" -> {
+                textArea.lookup(".content").setStyle("-fx-background-color: black;");
+                textArea.setStyle(
+                        "-fx-control-inner-background: black;" +
+                                "-fx-background-color: black;" +
+                                "-fx-text-fill: white"
+                );
+            }
+            case "Blue" -> {
+                textArea.lookup(".content").setStyle("-fx-background-color: blue;");
+                textArea.setStyle(
+                        "-fx-control-inner-background: blue;" +
+                                "-fx-background-color: blue;" +
+                                "-fx-text-fill: red"
+                );
+            }
+        }
+    }
 }

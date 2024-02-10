@@ -113,6 +113,11 @@ public class MenuController {
         MenuTextControllerMediator.getInstance().handleSetFontSize( Integer.parseInt ( ((MenuItem) actionEvent.getSource()).getText() ));
     }
 
+    @FXML
+    private void onColorClick(ActionEvent actionEvent) {
+        MenuTextControllerMediator.getInstance().handleSetColor( ((MenuItem) actionEvent.getSource()).getText() );
+    }
+
     public void updateWordWrap(boolean isWordWrapped){
         if (isWordWrapped) {
             wordWrap.setText("Word Wrap: On");
