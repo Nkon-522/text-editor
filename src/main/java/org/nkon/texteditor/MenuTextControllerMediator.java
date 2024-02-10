@@ -49,11 +49,26 @@ public class MenuTextControllerMediator {
         textController.redo();
     }
 
+    public void handleSaveAs() {
+        menuController.saveAs();
+    }
+
+    public void handleSave() {
+        menuController.save();
+    }
+
+    public void handleOpenFileMenu() {
+        menuController.openFileMenu();
+    }
+
     private MenuTextControllerMediator() {}
 
     public static MenuTextControllerMediator getInstance() {
         return MenuTextControllerMediatorHolder.instance;
     }
+
+
+
 
     private static class MenuTextControllerMediatorHolder {
         private static final MenuTextControllerMediator instance = new MenuTextControllerMediator();

@@ -3,6 +3,7 @@ package org.nkon.texteditor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -15,6 +16,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class MenuController {
+
+    @FXML
+    private Menu fileMenu;
     private Stage stage;
 
     private final FileChooser fileChooser;
@@ -144,10 +148,23 @@ public class MenuController {
         stage.setTitle(Objects.requireNonNullElse(s, "New"));
     }
 
+    public void saveAs(){
+        onSaveAsMenuItemClick();
+    }
+
+    public void save() {
+        onSaveMenuItemClick();
+    }
+
+    public void openFileMenu() {
+        fileMenu.show();
+    }
+
     public MenuController () {
         fileChooser = new FileChooser();
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Select a file (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(filter);
     }
+
 
 }
