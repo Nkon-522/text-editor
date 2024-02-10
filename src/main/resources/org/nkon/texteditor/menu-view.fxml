@@ -8,11 +8,11 @@
   <menus>
     <Menu mnemonicParsing="false" text="File">
       <items>
-        <MenuItem fx:id="newMenuItem" mnemonicParsing="false" onAction="#onNewMenuItemClick" text="New" />
-        <MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#onOpenMenuItemClick" text="Open" />
-        <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#onSaveMenuItemClick" text="Save" />
-        <MenuItem fx:id="saveAsMenuItem" mnemonicParsing="false" onAction="#onSaveAsMenuItemClick" text="Save as" />
-        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#onExitMenuItemClick" text="Exit" />
+        <MenuItem mnemonicParsing="false" onAction="#onNewMenuItemClick" text="New" />
+        <MenuItem mnemonicParsing="false" onAction="#onOpenMenuItemClick" text="Open" />
+        <MenuItem mnemonicParsing="false" onAction="#onSaveMenuItemClick" text="Save" />
+        <MenuItem mnemonicParsing="false" onAction="#onSaveAsMenuItemClick" text="Save as" />
+        <MenuItem mnemonicParsing="false" onAction="#onExitMenuItemClick" text="Exit" />
       </items>
     </Menu>
     <Menu mnemonicParsing="false" text="Edit">
@@ -22,7 +22,24 @@
     </Menu>
     <Menu mnemonicParsing="false" text="Format">
       <items>
-        <MenuItem mnemonicParsing="false" text="About" />
+        <MenuItem fx:id="wordWrap" mnemonicParsing="false" onAction="#onWordWrapClick" text="Word Wrap: Off" />
+            <Menu mnemonicParsing="false" text="Font">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onFontTypeClick" text="Arial" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontTypeClick" text="Comic Sans MS" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontTypeClick" text="Times New Roman" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Font size">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onFontSizeClick" text="8" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontSizeClick" text="12" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontSizeClick" text="16" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontSizeClick" text="20" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontSizeClick" text="24" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFontSizeClick" text="28" />
+               </items>
+            </Menu>
       </items>
     </Menu>
     <Menu mnemonicParsing="false" text="Color">

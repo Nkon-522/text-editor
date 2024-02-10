@@ -1,6 +1,7 @@
 package org.nkon.texteditor;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
@@ -16,25 +17,14 @@ import java.util.stream.Collectors;
 public class MenuController {
     private Stage stage;
 
-    private FileChooser fileChooser;
+    private final FileChooser fileChooser;
 
     String fileName = null;
     String filePath = null;
 
-    @FXML
-    private MenuItem newMenuItem;
 
     @FXML
-    private MenuItem openMenuItem;
-
-    @FXML
-    private MenuItem saveMenuItem;
-
-    @FXML
-    private MenuItem saveAsMenuItem;
-
-    @FXML
-    private MenuItem exitMenuItem;
+    private MenuItem wordWrap;
 
     @FXML
     private void onNewMenuItemClick() {
@@ -62,8 +52,6 @@ public class MenuController {
         } catch (Exception e) {
             System.out.println("Could not open file!");
         }
-
-
     }
 
     @FXML
@@ -82,7 +70,6 @@ public class MenuController {
         } catch (Exception e) {
             System.out.println("Could not save the file!");
         }
-
     }
 
     @FXML
@@ -111,6 +98,29 @@ public class MenuController {
         Platform.exit();
     }
 
+    @FXML
+    private void onWordWrapClick() {
+        MenuTextControllerMediator.getInstance().handleWordWrap();
+    }
+
+    @FXML
+    private void onFontTypeClick(ActionEvent actionEvent) {
+        MenuTextControllerMediator.getInstance().handleSetFont( ((MenuItem) actionEvent.getSource()).getText() );
+    }
+
+    @FXML
+    private void onFontSizeClick(ActionEvent actionEvent) {
+        MenuTextControllerMediator.getInstance().handleSetFontSize( Integer.parseInt ( ((MenuItem) actionEvent.getSource()).getText() ));
+    }
+
+    public void updateWordWrap(boolean isWordWrapped){
+        if (isWordWrapped) {
+            wordWrap.setText("Word Wrap: On");
+        } else {
+            wordWrap.setText("Word Wrap: Off");
+        }
+    }
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -124,6 +134,5 @@ public class MenuController {
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Select a file (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(filter);
     }
-
 
 }

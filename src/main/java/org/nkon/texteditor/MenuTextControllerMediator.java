@@ -1,6 +1,8 @@
 package org.nkon.texteditor;
 
 public class MenuTextControllerMediator {
+    boolean isWordWrapped = false;
+
     private MenuController menuController;
     private TextController textController;
 
@@ -19,6 +21,20 @@ public class MenuTextControllerMediator {
 
     public String getText() {
         return textController.getText();
+    }
+
+    public void handleWordWrap() {
+        isWordWrapped = !isWordWrapped;
+        menuController.updateWordWrap(isWordWrapped);
+        textController.updateWordWrap(isWordWrapped);
+    }
+
+    public void handleSetFont(String fontType) {
+        textController.setFontType(fontType);
+    }
+
+    public void handleSetFontSize(int fontSize) {
+        textController.setFontSize(fontSize);
     }
 
     private MenuTextControllerMediator() {}
